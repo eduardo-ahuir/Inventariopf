@@ -31,21 +31,14 @@ namespace CRUD
                 {
                     p.PRECIO = int.Parse(TextoPrecio.Text);
                     entidades.PRODUCTO.Add(p);
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Formato de precio no válido");
-                }
-                try
-                {
                     entidades.SaveChanges();
                     Mostrar_Datos();
                     MessageBox.Show("Producto Añadido");
                     limpiar_textbox();
                 }
-                catch
+                catch (FormatException)
                 {
-                    MessageBox.Show("Se ha producido algún tipo de error, probablemente con la Base de Datos");
+                    MessageBox.Show("Formato de precio no válido");
                 }
             }
         }
