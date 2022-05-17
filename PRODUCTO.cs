@@ -16,6 +16,7 @@ namespace CRUD
     {
         public int ID { get; set; }
         public string NOMBRE { get; set; }
-        public Nullable<int> PRECIO { get; set; }
+        public string PRECIO { get; set; }
+        public string EXISTENCIAS { get; set; }
     }
 }

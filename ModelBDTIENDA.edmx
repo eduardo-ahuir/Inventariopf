@@ -11,7 +11,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
-          <Property Name="PRECIO" Type="int" />
+          <Property Name="PRECIO" Type="varchar" MaxLength="50" />
+          <Property Name="EXISTENCIAS" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="BDTIENDAModelStoreContainer">
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
@@ -27,9 +28,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PRECIO" Type="Int32" />
+          <Property Name="PRECIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXISTENCIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="BDTIENDAEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BDTIENDAEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
         </EntityContainer>
       </Schema>
@@ -37,13 +39,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BDTIENDAModelStoreContainer" CdmEntityContainer="BDTIENDAEntities">
+        <EntityContainerMapping StorageEntityContainer="BDTIENDAModelStoreContainer" CdmEntityContainer="BDTIENDAEntities1">
           <EntitySetMapping Name="PRODUCTO">
             <EntityTypeMapping TypeName="BDTIENDAModel.PRODUCTO">
               <MappingFragment StoreEntitySet="PRODUCTO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="EXISTENCIAS" ColumnName="EXISTENCIAS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

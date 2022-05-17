@@ -13,10 +13,10 @@ namespace CRUD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BDTIENDAEntities : DbContext
+    public partial class BDTIENDAEntities1 : DbContext
     {
-        public BDTIENDAEntities()
-            : base("name=BDTIENDAEntities")
+        public BDTIENDAEntities1()
+            : base("name=BDTIENDAEntities1")
         {
         }
     

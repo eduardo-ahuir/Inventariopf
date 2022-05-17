@@ -87,10 +87,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Estilos\Estilos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,23 +101,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo_BDTIENDA.Context.cs">
+    <Compile Include="ModelBDTIENDA.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_BDTIENDA.Context.tt</DependentUpon>
+      <DependentUpon>ModelBDTIENDA.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo_BDTIENDA.cs">
+    <Compile Include="ModelBDTIENDA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_BDTIENDA.tt</DependentUpon>
+      <DependentUpon>ModelBDTIENDA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo_BDTIENDA.Designer.cs">
+    <Compile Include="ModelBDTIENDA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_BDTIENDA.edmx</DependentUpon>
+      <DependentUpon>ModelBDTIENDA.edmx</DependentUpon>
     </Compile>
     <Compile Include="PRODUCTO.cs">
-      <DependentUpon>Modelo_BDTIENDA.tt</DependentUpon>
+      <DependentUpon>ModelBDTIENDA.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -140,12 +136,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Modelo_BDTIENDA.edmx">
+    <EntityDeploy Include="ModelBDTIENDA.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Modelo_BDTIENDA.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelBDTIENDA.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo_BDTIENDA.edmx.diagram">
-      <DependentUpon>Modelo_BDTIENDA.edmx</DependentUpon>
+    <None Include="ModelBDTIENDA.edmx.diagram">
+      <DependentUpon>ModelBDTIENDA.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -176,15 +172,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>BDTIENDA.mdf</DependentUpon>
     </Content>
-    <Content Include="Modelo_BDTIENDA.Context.tt">
+    <Content Include="ModelBDTIENDA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Modelo_BDTIENDA.Context.cs</LastGenOutput>
-      <DependentUpon>Modelo_BDTIENDA.edmx</DependentUpon>
+      <DependentUpon>ModelBDTIENDA.edmx</DependentUpon>
+      <LastGenOutput>ModelBDTIENDA.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Modelo_BDTIENDA.tt">
+    <Content Include="ModelBDTIENDA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modelo_BDTIENDA.edmx</DependentUpon>
-      <LastGenOutput>Modelo_BDTIENDA.cs</LastGenOutput>
+      <DependentUpon>ModelBDTIENDA.edmx</DependentUpon>
+      <LastGenOutput>ModelBDTIENDA.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

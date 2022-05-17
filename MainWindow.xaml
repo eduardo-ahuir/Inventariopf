@@ -5,45 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="Mantenimiento CRUD" Height="450" Width="400">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/CRUD;component/Estilos/Estilos.xaml">
-            </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
+        Title="Inventario" Height="500" Width="400">
     <Grid>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
         </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="0" Name="ID" Content="ID" Style="{StaticResource Espaciados}"/>
-        <Label Grid.Row="1" Grid.Column="0" Name="Producto" Content="Producto" Style="{StaticResource Espaciados}"/>
-        <Label Grid.Row="2" Grid.Column="0" Name="Precio" Content="Precio" Style="{StaticResource Espaciados}"/>
-
-        <TextBox Grid.Row="0" Grid.Column="1" Name="TextoID" Style="{StaticResource Espaciados}" />
-        <Button Grid.Row="0" Grid.Column="2" Name="BtnBuscar" Content="Buscar Producto" Style="{StaticResource Espaciados}" Click="BtnBuscar_Click" />
-        <TextBox Grid.Row="1" Grid.Column="1" Name="TextoProducto" Grid.ColumnSpan="2" Style="{StaticResource Espaciados}" />
-        <TextBox Grid.Row="2" Grid.Column="1" Name="TextoPrecio" Grid.ColumnSpan="2" Style="{StaticResource Espaciados}" />
-
-        <Button Grid.Row="3" Grid.Column="0" Name="BtnAgregar" Content="Añadir" Style="{StaticResource Espaciados}" Click="BtnAgregar_Click" />
-        <Button Grid.Row="3" Grid.Column="1" Name="BtnEditar" Content="Editar" Style="{StaticResource Espaciados}" Click="BtnEditar_Click" />
-        <Button Grid.Row="3" Grid.Column="2" Name="BtnEliminar" Content="Eliminar" Style="{StaticResource Espaciados}" Click="BtnEliminar_Click"/>
-
-        <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  Name="Listado" Style="{StaticResource Espaciados}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Existencias Almacen" Grid.Row="0"  Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25" Grid.Column="1"/>
+        <ListView Grid.Row="1" Grid.ColumnSpan="6" Margin="10,10,10,10">
+            <ListViewItem Content="1"/>
+        </ListView>
+        <Label Content="Id" Grid.Row="2" HorizontalAlignment="Left" Margin="5,2,5,5"/>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoID"/>
+        <Label Content="producto" Grid.Row="3" HorizontalAlignment="Left" Margin="5,2,5,5"/>
+        <TextBox Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoProducto"/>
+        <Label Content="Unidades" Grid.Row="4" Margin="5,2,5,5"/>
+        <TextBox Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoExistencias"/>
+        <Label Content="precio" Grid.Row="5" HorizontalAlignment="Left" Margin="5,2,5,5"/>
+        <TextBox Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoPrecio"/>
+        <Button Content="Añadir" Grid.Row="6" Grid.Column="1" Margin="5,5,5,5"/>
+        <Button Content="Editar" Grid.Row="6" Grid.Column="2" Margin="5,5,5,5"/>
+        <Button Content="Eliminar" Grid.Row="6" Grid.Column="3" Margin="5,5,5,5"/>
+        <Button Content="Buscar(por producto)" Grid.Row="7" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
 
     </Grid>
 </Window>

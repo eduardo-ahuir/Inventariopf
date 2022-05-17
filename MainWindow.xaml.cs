@@ -5,20 +5,17 @@ using System.Windows;
 
 namespace CRUD
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            Mostrar_Datos();
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            BDTIENDAEntities entidades = new BDTIENDAEntities();
+            BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             PRODUCTO p = new PRODUCTO();
             if (TextoProducto.Text == "")
             {
@@ -29,7 +26,8 @@ namespace CRUD
                 p.NOMBRE = TextoProducto.Text;
                 try
                 {
-                    p.PRECIO = int.Parse(TextoPrecio.Text);
+                    p.PRECIO = TextoPrecio.Text;
+                    p.EXISTENCIAS = TextoExistencias.Text;
                     entidades.PRODUCTO.Add(p);
                     entidades.SaveChanges();
                     Mostrar_Datos();
@@ -45,18 +43,16 @@ namespace CRUD
 
         private void Mostrar_Datos()
         {
-            BDTIENDAEntities entidades = new BDTIENDAEntities();
+            BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             List<PRODUCTO> productos = entidades.PRODUCTO.ToList<PRODUCTO>();
-            Listado.ItemsSource = productos;
-            Listado.Items.Refresh();
         }
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            BDTIENDAEntities entidades = new BDTIENDAEntities();
+            BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             try
             {
-                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text)).FirstOrDefault<PRODUCTO>();
+                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
 
                 if (producto == null)
                 {
@@ -65,11 +61,9 @@ namespace CRUD
                 else
                 {
                     producto.NOMBRE = TextoProducto.Text;
-                    producto.PRECIO = int.Parse(TextoPrecio.Text);
+                    producto.PRECIO = TextoPrecio.Text;
+                    producto.EXISTENCIAS = TextoExistencias.Text;
                     entidades.SaveChanges();
-                    Mostrar_Datos();
-                    limpiar_textbox();
-                    MessageBox.Show("Cambios realizados correctamente");
 
                 }
             }
@@ -81,8 +75,8 @@ namespace CRUD
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            BDTIENDAEntities entidades = new BDTIENDAEntities();
-            PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text)).FirstOrDefault<PRODUCTO>();
+            BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
+            PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
             if (producto == null)
             {
                 MessageBox.Show("No se encontró el producto");
@@ -93,9 +87,7 @@ namespace CRUD
                 {
                     entidades.PRODUCTO.Remove(producto);
                     entidades.SaveChanges();
-                    Mostrar_Datos();
-                    limpiar_textbox();
-                    MessageBox.Show("Producto Eliminado");
+
                 }
                 catch
                 {
@@ -104,19 +96,13 @@ namespace CRUD
             }
         }
 
-        private void limpiar_textbox()
-        {
-            TextoProducto.Clear();
-            TextoID.Clear();
-            TextoPrecio.Clear();
-        }
 
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            BDTIENDAEntities entidades = new BDTIENDAEntities();
+            BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             try
             {
-                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text)).FirstOrDefault<PRODUCTO>();
+                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Content.ToString())).FirstOrDefault<PRODUCTO>();
 
                 if (producto == null)
                 {
@@ -124,8 +110,7 @@ namespace CRUD
                 }
                 else
                 {
-                    TextoProducto.Text = producto.NOMBRE;
-                    TextoPrecio.Text = Convert.ToString(producto.PRECIO);
+
                 }
             }
             catch (FormatException)
