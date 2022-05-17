@@ -11,6 +11,7 @@ namespace CRUD
         public MainWindow()
         {
             InitializeComponent();
+            Mostrar_Datos();
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -40,11 +41,24 @@ namespace CRUD
                 }
             }
         }
+        private void limpiar_textbox()
+        {
+            TextoID.Clear();
+            TextoProducto.Clear();
+            TextoExistencias.Clear();
+            TextoPrecio.Clear();
+        }
+
+
+
 
         private void Mostrar_Datos()
         {
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             List<PRODUCTO> productos = entidades.PRODUCTO.ToList<PRODUCTO>();
+            for (int i = 0; i < productos.Count; i++) { 
+            Lista.Items.Add(productos[i].NOMBRE);
+            }
         }
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
@@ -102,7 +116,7 @@ namespace CRUD
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             try
             {
-                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Content.ToString())).FirstOrDefault<PRODUCTO>();
+                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
 
                 if (producto == null)
                 {
@@ -118,5 +132,14 @@ namespace CRUD
                 MessageBox.Show("Has introducido incorrectamente el ID");
             }
         }
+        private void mostrarproducto() {
+            
+
+            Lista.Columns.Add()
+
+        }
+    
+    
+   
     }
 }

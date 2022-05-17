@@ -26,9 +26,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="Existencias Almacen" Grid.Row="0"  Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25" Grid.Column="1"/>
-        <ListView Grid.Row="1" Grid.ColumnSpan="6" Margin="10,10,10,10">
-            <ListViewItem Content="1"/>
-        </ListView>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="6" Margin="10,10,10,10" Name="Lista">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="ID"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Id" Grid.Row="2" HorizontalAlignment="Left" Margin="5,2,5,5"/>
         <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoID"/>
         <Label Content="producto" Grid.Row="3" HorizontalAlignment="Left" Margin="5,2,5,5"/>
@@ -37,10 +41,10 @@
         <TextBox Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoExistencias"/>
         <Label Content="precio" Grid.Row="5" HorizontalAlignment="Left" Margin="5,2,5,5"/>
         <TextBox Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoPrecio"/>
-        <Button Content="Añadir" Grid.Row="6" Grid.Column="1" Margin="5,5,5,5"/>
-        <Button Content="Editar" Grid.Row="6" Grid.Column="2" Margin="5,5,5,5"/>
-        <Button Content="Eliminar" Grid.Row="6" Grid.Column="3" Margin="5,5,5,5"/>
-        <Button Content="Buscar(por producto)" Grid.Row="7" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
+        <Button Content="Añadir" Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Click="BtnAgregar_Click"/>
+        <Button Content="Editar" Grid.Row="6" Grid.Column="2" Margin="5,5,5,5" Click="BtnEditar_Click"/>
+        <Button Content="Eliminar" Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" Click="BtnEliminar_Click"/>
+        <Button Content="Buscar(por producto)" Grid.Row="7" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="3" Click="BtnBuscar_Click"/>
 
     </Grid>
 </Window>
