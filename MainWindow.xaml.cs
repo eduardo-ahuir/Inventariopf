@@ -29,11 +29,13 @@ namespace CRUD
                 {
                     p.PRECIO = TextoPrecio.Text;
                     p.EXISTENCIAS = TextoExistencias.Text;
+                    
                     entidades.PRODUCTO.Add(p);
                     entidades.SaveChanges();
-                    Mostrar_Datos();
+                    
                     MessageBox.Show("Producto Añadido");
                     limpiar_textbox();
+                    Mostrar_Datos();
                 }
                 catch (FormatException)
                 {
@@ -57,7 +59,9 @@ namespace CRUD
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             List<PRODUCTO> productos = entidades.PRODUCTO.ToList<PRODUCTO>();
             for (int i = 0; i < productos.Count; i++) { 
-            Lista.Items.Add(productos[i].NOMBRE);
+            Lista.ItemsSource= productos;
+            Lista.Items.Refresh();
+
             }
         }
 
@@ -101,6 +105,8 @@ namespace CRUD
                 {
                     entidades.PRODUCTO.Remove(producto);
                     entidades.SaveChanges();
+                    Mostrar_Datos();
+                    MessageBox.Show("Producto Borrado");
 
                 }
                 catch
@@ -133,9 +139,9 @@ namespace CRUD
             }
         }
         private void mostrarproducto() {
-            
 
-            Lista.Columns.Add()
+
+            
 
         }
     
