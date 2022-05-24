@@ -29,8 +29,6 @@
         <DataGrid Grid.Row="1" Grid.ColumnSpan="6" Margin="10,10,10,10" Name="Lista" ColumnWidth="3*">
             
         </DataGrid>
-        <Label Content="Id" Grid.Row="2" HorizontalAlignment="Left" Margin="5,1,5,5"/>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoID"/>
         <Label Content="producto" Grid.Row="3" HorizontalAlignment="Left" Margin="5,1,5,5"/>
         <TextBox Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,5,5,5" Name="TextoProducto"/>
         <Label Content="Unidades" Grid.Row="4" Margin="5,1,5,5"/>

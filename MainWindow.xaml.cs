@@ -45,7 +45,7 @@ namespace CRUD
         }
         private void limpiar_textbox()
         {
-            TextoID.Clear();
+            
             TextoProducto.Clear();
             TextoExistencias.Clear();
             TextoPrecio.Clear();
@@ -70,7 +70,7 @@ namespace CRUD
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             try
             {
-                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
+                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.NOMBRE == TextoProducto.Text.ToString()).FirstOrDefault<PRODUCTO>(); ;
 
                 if (producto == null)
                 {
@@ -94,7 +94,7 @@ namespace CRUD
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
-            PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
+            PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.NOMBRE == TextoProducto.Text.ToString()).FirstOrDefault<PRODUCTO>();
             if (producto == null)
             {
                 MessageBox.Show("No se encontró el producto");
@@ -107,7 +107,7 @@ namespace CRUD
                     entidades.SaveChanges();
                     Mostrar_Datos();
                     MessageBox.Show("Producto Borrado");
-
+                    limpiar_textbox();
                 }
                 catch
                 {
@@ -122,7 +122,9 @@ namespace CRUD
             BDTIENDAEntities1 entidades = new BDTIENDAEntities1();
             try
             {
-                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.ID == int.Parse(TextoID.Text.ToString())).FirstOrDefault<PRODUCTO>();
+                PRODUCTO producto = entidades.PRODUCTO.ToList<PRODUCTO>().Where(c => c.NOMBRE == TextoProducto.Text.ToString()).FirstOrDefault<PRODUCTO>();
+                Mostrar_Datos();
+                MessageBox.Show("Producto encontrado");
 
                 if (producto == null)
                 {
@@ -135,7 +137,7 @@ namespace CRUD
             }
             catch (FormatException)
             {
-                MessageBox.Show("Has introducido incorrectamente el ID");
+                MessageBox.Show("Has introducido incorrectamente el nombre");
             }
         }
         private void mostrarproducto() {
